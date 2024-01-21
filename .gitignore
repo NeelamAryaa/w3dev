@@ -1,4 +1,9 @@
 node_modules/
 
 
-**/.env
+
+# Ignore .env file in the root directory
+/.env
+
+# Ignore .env file in the client directory
+/client/.env
