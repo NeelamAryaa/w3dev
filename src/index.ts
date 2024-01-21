@@ -9,14 +9,15 @@ import {
   updateTodo,
   deleteTodo,
 } from "./controllers/todoControllers";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 const port = 3000;
-
 app.use(express.json());
 app.use(cors());
-
-mongoose.connect("mongodb+srv://root:root@cluster0.uphghdj.mongodb.net/");
+console.log(process.env.MONGODB_URL);
+mongoose.connect(`${process.env.MONGODB_URL}`);
 
 app.get("/todos", getAllToDos);
 app.post("/todos", addTodo);
